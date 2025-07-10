@@ -1,3 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EasyPickTrip</string>
+    <string name="app_name">여행지 추천</string>
+    <string name="travel_recommendation">✈️ 여행지 추천</string>
+    <string name="select_travel_type">어떤 여행을 원하시나요?</string>
+    <string name="select_travel_type_detail">여행 유형을 선택해주세요</string>
+    <string name="relaxation">🏖️ 휴양 - 여유로운 휴식</string>
+    <string name="sightseeing">🏛️ 관광 - 명소 둘러보기</string>
+    <string name="adventure">🏔️ 모험 - 익스트림 체험</string>
+    <string name="culture">🏺 문화 - 역사와 전통</string>
+    <string name="anywhere">🎲 상관없음 - 운에 맡기기</string>
+    <string name="find_destination">🎯 여행지 찾기</string>
+    <string name="your_destination">🎲 당신이 찾던 여행지입니다!</string>
+    <string name="weather">🌤️ 날씨: %s</string>
+    <string name="budget">💰 예상 경비: %s</string>
+    <string name="duration">📅 추천 기간: %s</string>
+    <string name="tip">%s</string>
+    <string name="try_again">🔄 다시 선택하기</string>
+    <string name="destination_format">📍 %s</string>
 </resources>

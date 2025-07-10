@@ -1,19 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/gradient_background"
+    android:padding="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- 초기 화면 -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/travel_recommendation"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/subtitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_travel_type"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="32dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:id="@+id/travelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_travel_type_detail"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <RadioGroup
+                    android:id="@+id/travelTypeGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/relaxationRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/relaxation"
+                        android:textSize="16sp"
+                        android:textColor="@color/dark_gray"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioButton
+                        android:id="@+id/sightseeingRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sightseeing"
+                        android:textSize="16sp"
+                        android:textColor="@color/dark_gray"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioButton
+                        android:id="@+id/adventureRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adventure"
+                        android:textSize="16sp"
+                        android:textColor="@color/dark_gray"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioButton
+                        android:id="@+id/cultureRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/culture"
+                        android:textSize="16sp"
+                        android:textColor="@color/dark_gray"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioButton
+                        android:id="@+id/anywhereRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/anywhere"
+                        android:textSize="16sp"
+                        android:textColor="@color/dark_gray"
+                        android:padding="12dp" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/selectButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/find_destination"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/button_selector"
+            android:textColor="@android:color/white"
+            android:elevation="4dp" />
+
+    </LinearLayout>
+
+    <!-- 주사위 애니메이션 -->
+    <ImageView
+        android:id="@+id/diceImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/dice_icon"
+        android:visibility="gone" />
+
+    <!-- 결과 화면 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/resultCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:id="@+id/resultTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/your_destination"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:id="@+id/destinationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/destination_format"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_gray"
+                android:gravity="center"
+                android:layout_marginBottom="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:id="@+id/weatherText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/weather"
+                android:textSize="16sp"
+                android:textColor="@color/dark_gray"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/budgetText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/budget"
+                android:textSize="16sp"
+                android:textColor="@color/dark_gray"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/durationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/duration"
+                android:textSize="16sp"
+                android:textColor="@color/dark_gray"
+                android:layout_marginBottom="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_gray"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tipText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tip"
+                android:textSize="14sp"
+                android:textColor="@color/medium_gray"
+                android:background="@drawable/tip_background"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/retryButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/try_again"
+                android:textSize="16sp"
+                android:background="@drawable/button_selector_secondary"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
