@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen padding -->
+    <dimen name="screen_padding">24dp</dimen>
+
+    <!-- Title text -->
+    <dimen name="title_text_size">32sp</dimen>
+    <dimen name="title_margin_bottom">16dp</dimen>
+
+    <!-- Subtitle text -->
+    <dimen name="subtitle_text_size">18sp</dimen>
+    <dimen name="subtitle_margin_bottom">32dp</dimen>
+
+    <!-- Card dimensions -->
+    <dimen name="card_margin_bottom">24dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_padding">24dp</dimen>
+
+    <!-- Card title -->
+    <dimen name="card_title_text_size">18sp</dimen>
+    <dimen name="card_title_margin_bottom">16dp</dimen>
+
+    <!-- Radio buttons -->
+    <dimen name="radio_text_size">16sp</dimen>
+    <dimen name="radio_padding">12dp</dimen>
+    <dimen name="radio_margin_bottom">8dp</dimen>
+    <dimen name="radio_min_height">48dp</dimen>
+
+    <!-- Button -->
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_text_size">18sp</dimen>
+
+    <!-- Dice -->
+    <dimen name="dice_size">120dp</dimen>
+
+    <!-- Result card -->
+    <dimen name="result_card_corner_radius">20dp</dimen>
+    <dimen name="result_card_elevation">12dp</dimen>
+    <dimen name="result_card_padding">32dp</dimen>
+
+    <!-- Result text -->
+    <dimen name="result_title_text_size">22sp</dimen>
+    <dimen name="result_title_margin_bottom">24dp</dimen>
+    <dimen name="destination_text_size">28sp</dimen>
+    <dimen name="destination_margin_bottom">20dp</dimen>
+
+    <!-- Info text -->
+    <dimen name="info_text_size">16sp</dimen>
+    <dimen name="info_margin_bottom">12dp</dimen>
+
+    <!-- Divider -->
+    <dimen name="divider_margin_bottom">20dp</dimen>
+
+    <!-- Tip -->
+    <dimen name="tip_text_size">14sp</dimen>
+    <dimen name="tip_padding">12dp</dimen>
+    <dimen name="tip_margin_bottom">24dp</dimen>
+
+    <!-- Retry button -->
+    <dimen name="retry_button_height">48dp</dimen>
+    <dimen name="retry_button_text_size">16sp</dimen>
+</resources>
