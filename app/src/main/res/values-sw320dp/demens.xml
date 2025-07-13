@@ -57,6 +57,17 @@
     <dimen name="tip_padding">8dp</dimen>
     <dimen name="tip_margin_bottom">16dp</dimen>
 
+    <!-- Travel selection buttons -->
+    <dimen name="travel_button_height">58dp</dimen>
+    <dimen name="travel_button_text_size">14sp</dimen>
+    <dimen name="travel_button_margin">8dp</dimen>
+    <dimen name="travel_button_padding">12dp</dimen>
+    <dimen name="travel_button_drawable_padding">8dp</dimen>
+
+    <!-- Loading -->
+    <dimen name="loading_text_size">16sp</dimen>
+    <dimen name="loading_margin_bottom">16dp</dimen>
+
     <!-- Retry button -->
     <dimen name="retry_button_height">44dp</dimen>
     <dimen name="retry_button_text_size">14sp</dimen>

@@ -31,7 +31,11 @@
                 android:layout_marginBottom="@dimen/title_margin_bottom"
                 android:gravity="center"
                 android:maxLines="2"
-                android:ellipsize="end" />
+                android:ellipsize="end"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4" />
 
             <TextView
                 android:id="@+id/subtitleText"
@@ -43,121 +47,164 @@
                 android:layout_marginBottom="@dimen/subtitle_margin_bottom"
                 android:gravity="center"
                 android:maxLines="2"
-                android:ellipsize="end" />
+                android:ellipsize="end"
+                android:shadowColor="#80000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/selectionCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/card_margin_bottom"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:cardElevation="@dimen/card_elevation">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="@color/card_background">
 
                 <LinearLayout
                     android:id="@+id/travelLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/card_padding">
+                    android:padding="24dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/select_travel_type_detail"
-                        android:textColor="@color/dark_gray"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/card_title_text_size"
                         android:textStyle="bold"
-                        android:layout_marginBottom="@dimen/card_title_margin_bottom"
+                        android:layout_marginBottom="20dp"
                         android:maxLines="2"
                         android:ellipsize="end" />
 
-                    <RadioGroup
-                        android:id="@+id/travelTypeGroup"
+                    <!-- 여행 유형 선택 버튼들 -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/relaxationRadio"
+                        <Button
+                            android:id="@+id/relaxationButton"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/travel_button_height"
                             android:text="@string/relaxation"
-                            android:textSize="@dimen/radio_text_size"
-                            android:textColor="@color/dark_gray"
-                            android:padding="@dimen/radio_padding"
-                            android:layout_marginBottom="@dimen/radio_margin_bottom"
-                            android:minHeight="@dimen/radio_min_height" />
+                            android:textSize="@dimen/travel_button_text_size"
+                            android:textColor="@color/white"
+                            android:background="@drawable/button_relaxation"
+                            android:layout_marginBottom="@dimen/travel_button_margin"
+                            android:gravity="start|center_vertical"
+                            android:padding="@dimen/travel_button_padding"
+                            android:elevation="4dp"
+                            android:stateListAnimator="@null"
+                            android:focusable="true"
+                            android:clickable="true" />
 
-                        <RadioButton
-                            android:id="@+id/sightseeingRadio"
+                        <Button
+                            android:id="@+id/sightseeingButton"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/travel_button_height"
                             android:text="@string/sightseeing"
-                            android:textSize="@dimen/radio_text_size"
-                            android:textColor="@color/dark_gray"
-                            android:padding="@dimen/radio_padding"
-                            android:layout_marginBottom="@dimen/radio_margin_bottom"
-                            android:minHeight="@dimen/radio_min_height" />
+                            android:textSize="@dimen/travel_button_text_size"
+                            android:textColor="@color/white"
+                            android:background="@drawable/button_sightseeing"
+                            android:layout_marginBottom="@dimen/travel_button_margin"
+                            android:gravity="start|center_vertical"
+                            android:padding="@dimen/travel_button_padding"
+                            android:elevation="4dp"
+                            android:stateListAnimator="@null"
+                            android:focusable="true"
+                            android:clickable="true" />
 
-                        <RadioButton
-                            android:id="@+id/adventureRadio"
+                        <Button
+                            android:id="@+id/adventureButton"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/travel_button_height"
                             android:text="@string/adventure"
-                            android:textSize="@dimen/radio_text_size"
-                            android:textColor="@color/dark_gray"
-                            android:padding="@dimen/radio_padding"
-                            android:layout_marginBottom="@dimen/radio_margin_bottom"
-                            android:minHeight="@dimen/radio_min_height" />
+                            android:textSize="@dimen/travel_button_text_size"
+                            android:textColor="@color/white"
+                            android:background="@drawable/button_adventure"
+                            android:layout_marginBottom="@dimen/travel_button_margin"
+                            android:gravity="start|center_vertical"
+                            android:padding="@dimen/travel_button_padding"
+                            android:elevation="4dp"
+                            android:stateListAnimator="@null"
+                            android:focusable="true"
+                            android:clickable="true" />
 
-                        <RadioButton
-                            android:id="@+id/cultureRadio"
+                        <Button
+                            android:id="@+id/cultureButton"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/travel_button_height"
                             android:text="@string/culture"
-                            android:textSize="@dimen/radio_text_size"
-                            android:textColor="@color/dark_gray"
-                            android:padding="@dimen/radio_padding"
-                            android:layout_marginBottom="@dimen/radio_margin_bottom"
-                            android:minHeight="@dimen/radio_min_height" />
+                            android:textSize="@dimen/travel_button_text_size"
+                            android:textColor="@color/white"
+                            android:background="@drawable/button_culture"
+                            android:layout_marginBottom="@dimen/travel_button_margin"
+                            android:gravity="start|center_vertical"
+                            android:padding="@dimen/travel_button_padding"
+                            android:elevation="4dp"
+                            android:stateListAnimator="@null"
+                            android:focusable="true"
+                            android:clickable="true" />
 
-                        <RadioButton
-                            android:id="@+id/anywhereRadio"
+                        <Button
+                            android:id="@+id/anywhereButton"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/travel_button_height"
                             android:text="@string/anywhere"
-                            android:textSize="@dimen/radio_text_size"
-                            android:textColor="@color/dark_gray"
-                            android:padding="@dimen/radio_padding"
-                            android:minHeight="@dimen/radio_min_height" />
+                            android:textSize="@dimen/travel_button_text_size"
+                            android:textColor="@color/white"
+                            android:background="@drawable/button_anywhere"
+                            android:gravity="start|center_vertical"
+                            android:padding="@dimen/travel_button_padding"
+                            android:elevation="4dp"
+                            android:stateListAnimator="@null"
+                            android:focusable="true"
+                            android:clickable="true" />
 
-                    </RadioGroup>
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/selectButton"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/button_height"
-                android:text="@string/find_destination"
-                android:textSize="@dimen/button_text_size"
-                android:textStyle="bold"
-                android:background="@drawable/button_selector"
-                android:textColor="@android:color/white"
-                android:elevation="4dp"
-                android:layout_marginBottom="@dimen/screen_padding" />
-
         </LinearLayout>
 
-        <!-- 주사위 애니메이션 -->
-        <ImageView
-            android:id="@+id/diceImage"
-            android:layout_width="@dimen/dice_size"
-            android:layout_height="@dimen/dice_size"
+        <!-- 로딩 화면 -->
+        <LinearLayout
+            android:id="@+id/loadingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/dice_icon"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/diceImage"
+                android:layout_width="@dimen/dice_size"
+                android:layout_height="@dimen/dice_size"
+                android:src="@drawable/dice_icon"
+                android:layout_marginBottom="@dimen/loading_margin_bottom" />
+
+            <TextView
+                android:id="@+id/loadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍 완벽한 여행지를 찾고 있어요..."
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/loading_text_size"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:shadowColor="#80000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4" />
+
+        </LinearLayout>
 
         <!-- 결과 화면 -->
         <androidx.cardview.widget.CardView
@@ -167,23 +214,24 @@
             android:layout_centerInParent="true"
             android:visibility="gone"
             android:layout_margin="@dimen/screen_padding"
-            app:cardCornerRadius="@dimen/result_card_corner_radius"
-            app:cardElevation="@dimen/result_card_elevation">
+            app:cardCornerRadius="24dp"
+            app:cardElevation="16dp"
+            app:cardBackgroundColor="@color/card_background">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/result_card_padding">
+                android:padding="28dp">
 
                 <TextView
                     android:id="@+id/resultTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/your_destination"
+                    android:text="🎉 당신의 여행지"
                     android:textSize="@dimen/result_title_text_size"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/text_accent"
                     android:gravity="center"
                     android:layout_marginBottom="@dimen/result_title_margin_bottom"
                     android:maxLines="2"
@@ -196,7 +244,7 @@
                     android:text="@string/destination_format"
                     android:textSize="@dimen/destination_text_size"
                     android:textStyle="bold"
-                    android:textColor="@color/dark_gray"
+                    android:textColor="@color/text_primary"
                     android:gravity="center"
                     android:layout_marginBottom="@dimen/destination_margin_bottom"
                     android:maxLines="3"
@@ -204,7 +252,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginBottom="@dimen/divider_margin_bottom" />
 
@@ -212,9 +260,9 @@
                     android:id="@+id/weatherText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/weather"
+                    android:text="🌤️ 날씨"
                     android:textSize="@dimen/info_text_size"
-                    android:textColor="@color/dark_gray"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="@dimen/info_margin_bottom"
                     android:maxLines="2"
                     android:ellipsize="end" />
@@ -223,9 +271,9 @@
                     android:id="@+id/budgetText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/budget"
+                    android:text="💰 예산"
                     android:textSize="@dimen/info_text_size"
-                    android:textColor="@color/dark_gray"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="@dimen/info_margin_bottom"
                     android:maxLines="2"
                     android:ellipsize="end" />
@@ -234,16 +282,16 @@
                     android:id="@+id/durationText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/duration"
+                    android:text="⏰ 여행 기간"
                     android:textSize="@dimen/info_text_size"
-                    android:textColor="@color/dark_gray"
+                    android:textColor="@color/text_primary"
                     android:layout_marginBottom="@dimen/info_margin_bottom"
                     android:maxLines="2"
                     android:ellipsize="end" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="2dp"
                     android:background="@color/light_gray"
                     android:layout_marginBottom="@dimen/divider_margin_bottom" />
 
@@ -251,11 +299,11 @@
                     android:id="@+id/tipText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tip"
+                    android:text="💡 팁"
                     android:textSize="@dimen/tip_text_size"
-                    android:textColor="@color/medium_gray"
+                    android:textColor="@color/text_secondary"
                     android:background="@drawable/tip_background"
-                    android:padding="@dimen/tip_padding"
+                    android:padding="16dp"
                     android:layout_marginBottom="@dimen/tip_margin_bottom"
                     android:maxLines="4"
                     android:ellipsize="end" />
@@ -264,10 +312,12 @@
                     android:id="@+id/retryButton"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/retry_button_height"
-                    android:text="@string/try_again"
+                    android:text="🔄 다시 해보기"
                     android:textSize="@dimen/retry_button_text_size"
-                    android:background="@drawable/button_selector_secondary"
-                    android:textColor="@color/white" />
+                    android:background="@drawable/button_retry"
+                    android:textColor="@color/white"
+                    android:elevation="4dp"
+                    android:stateListAnimator="@null" />
 
             </LinearLayout>
 

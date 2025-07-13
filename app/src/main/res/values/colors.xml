@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 기본 색상 -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_color">#FF6B6B</color>
-    <color name="primary_dark">#E55A5A</color>
-    <color name="accent_color">#4ECDC4</color>
-    <color name="dark_gray">#333333</color>
-    <color name="medium_gray">#666666</color>
-    <color name="light_gray">#E0E0E0</color>
-    <color name="background_start">#667eea</color>
-    <color name="background_end">#764ba2</color>
-    <color name="card_background">#FFFFFF</color>
-    <color name="tip_background">#F8F9FA</color>
+
+    <!-- 귀여운 파스텔 메인 색상 -->
+    <color name="primary_dark">#FF6B9D</color>
+    <color name="accent_color">#95E1D3</color>
+    <color name="primary_color">#FFB6C1</color>
+    <color name="light_primary">#FFF0F5</color>
+
+    <!-- 부드러운 그레이 톤 -->
+    <color name="dark_gray">#5A5A5A</color>
+    <color name="medium_gray">#8A8A8A</color>
+    <color name="light_gray">#F5F5F5</color>
+
+    <!-- 귀여운 그라데이션 배경 -->
+    <color name="background_start">#FFE4E1</color>
+    <color name="background_end">#E6E6FA</color>
+
+    <!-- 카드 배경 -->
+    <color name="card_background">#FAFAFA</color>
+    <color name="tip_background">#FFF8DC</color>
+
+    <!-- 귀여운 버튼 색상들 -->
+    <color name="button_relaxation">#FFB6C1</color>
+    <color name="button_relaxation_pressed">#FF69B4</color>
+    <color name="button_sightseeing">#DDA0DD</color>
+    <color name="button_sightseeing_pressed">#DA70D6</color>
+    <color name="button_adventure">#98FB98</color>
+    <color name="button_adventure_pressed">#00FA9A</color>
+    <color name="button_culture">#FFCCCB</color>
+    <color name="button_culture_pressed">#FFB347</color>
+    <color name="button_anywhere">#87CEEB</color>
+    <color name="button_anywhere_pressed">#00BFFF</color>
+
+    <!-- 텍스트 색상 -->
+    <color name="text_primary">#4A4A4A</color>
+    <color name="text_secondary">#7A7A7A</color>
+    <color name="text_accent">#FF6B9D</color>
 </resources>

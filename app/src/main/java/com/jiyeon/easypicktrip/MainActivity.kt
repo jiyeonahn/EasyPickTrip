@@ -5,14 +5,11 @@ import android.animation.PropertyValuesHolder
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Layout
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -22,15 +19,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var titleText: TextView
     private lateinit var subtitleText: TextView
-    private lateinit var travelTypeGroup: RadioGroup
-    private lateinit var travelLayout: LinearLayout
-    private lateinit var relaxationRadio: RadioButton
-    private lateinit var sightseeingRadio: RadioButton
-    private lateinit var anywhereRadio: RadioButton
-    private lateinit var adventureRadio: RadioButton
-    private lateinit var cultureRadio: RadioButton
-    private lateinit var selectButton: Button
+    private lateinit var mainLayout: LinearLayout
+    private lateinit var loadingLayout: LinearLayout
+    private lateinit var relaxationButton: Button
+    private lateinit var sightseeingButton: Button
+    private lateinit var adventureButton: Button
+    private lateinit var cultureButton: Button
+    private lateinit var anywhereButton: Button
     private lateinit var diceImage: ImageView
+    private lateinit var loadingText: TextView
     private lateinit var resultCard: CardView
     private lateinit var resultTitle: TextView
     private lateinit var destinationText: TextView
@@ -103,15 +100,15 @@ class MainActivity : AppCompatActivity() {
     private fun initViews() {
         titleText = findViewById(R.id.titleText)
         subtitleText = findViewById(R.id.subtitleText)
-        travelTypeGroup = findViewById(R.id.travelTypeGroup)
-        travelLayout = findViewById(R.id.travelLayout)
-        relaxationRadio = findViewById(R.id.relaxationRadio)
-        sightseeingRadio = findViewById(R.id.sightseeingRadio)
-        anywhereRadio = findViewById(R.id.anywhereRadio)
-        adventureRadio = findViewById(R.id.adventureRadio)
-        cultureRadio = findViewById(R.id.cultureRadio)
-        selectButton = findViewById(R.id.selectButton)
+        mainLayout = findViewById(R.id.mainLayout)
+        loadingLayout = findViewById(R.id.loadingLayout)
+        relaxationButton = findViewById(R.id.relaxationButton)
+        sightseeingButton = findViewById(R.id.sightseeingButton)
+        adventureButton = findViewById(R.id.adventureButton)
+        cultureButton = findViewById(R.id.cultureButton)
+        anywhereButton = findViewById(R.id.anywhereButton)
         diceImage = findViewById(R.id.diceImage)
+        loadingText = findViewById(R.id.loadingText)
         resultCard = findViewById(R.id.resultCard)
         resultTitle = findViewById(R.id.resultTitle)
         destinationText = findViewById(R.id.destinationText)
@@ -123,12 +120,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        selectButton.setOnClickListener {
-            val selectedType = getSelectedTravelType()
-            if (selectedType != null) {
-                showResult(selectedType)
-                //showDiceAnimation(selectedType)
-            }
+        relaxationButton.setOnClickListener {
+            showDiceAnimation("휴양")
+        }
+
+        sightseeingButton.setOnClickListener {
+            showDiceAnimation("관광")
+        }
+
+        adventureButton.setOnClickListener {
+            showDiceAnimation("액티비티")
+        }
+
+        cultureButton.setOnClickListener {
+            showDiceAnimation("문화")
+        }
+
+        anywhereButton.setOnClickListener {
+            showDiceAnimation("상관없음")
         }
 
         retryButton.setOnClickListener {
@@ -136,43 +145,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getSelectedTravelType(): String? {
-        return when (travelTypeGroup.checkedRadioButtonId) {
-            R.id.relaxationRadio -> "휴양"
-            R.id.sightseeingRadio -> "관광"
-            R.id.anywhereRadio -> "상관없음"
-            R.id.adventureRadio -> "모험"
-            R.id.cultureRadio -> "문화"
-            else -> null
-        }
-    }
-
     private fun showInitialScreen() {
         // 초기 화면 표시
-        titleText.visibility = View.VISIBLE
-        subtitleText.visibility = View.VISIBLE
-        travelTypeGroup.visibility = View.VISIBLE
-        travelLayout.visibility = View.VISIBLE
-        selectButton.visibility = View.VISIBLE
+        mainLayout.visibility = View.VISIBLE
 
         // 다른 화면 숨기기
-        diceImage.visibility = View.GONE
+        loadingLayout.visibility = View.GONE
         resultCard.visibility = View.GONE
-
-        // 라디오 버튼 초기화
-        travelTypeGroup.clearCheck()
     }
 
     private fun showDiceAnimation(travelType: String) {
         // 초기 화면 숨기기
-        titleText.visibility = View.GONE
-        subtitleText.visibility = View.GONE
-        travelTypeGroup.visibility = View.GONE
-        travelLayout.visibility = View.GONE
-        selectButton.visibility = View.GONE
+        mainLayout.visibility = View.GONE
 
-        // 주사위 애니메이션 표시
-        diceImage.visibility = View.VISIBLE
+        // 로딩 화면 표시
+        loadingLayout.visibility = View.VISIBLE
+        resultCard.visibility = View.GONE
 
         // 주사위 회전 애니메이션
         val rotationX = PropertyValuesHolder.ofFloat(View.ROTATION_X, 0f, 360f)
@@ -197,8 +185,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showResult(travelType: String) {
-        // 주사위 숨기기
-        diceImage.visibility = View.GONE
+        // 로딩 화면 숨기기
+        loadingLayout.visibility = View.GONE
 
         // 결과 화면 표시
         resultCard.visibility = View.VISIBLE
@@ -213,7 +201,7 @@ class MainActivity : AppCompatActivity() {
         weatherText.text = "🌤️ 날씨: ${randomDestination.weather}"
         budgetText.text = "💰 예상 경비: ${randomDestination.budget}"
         durationText.text = "📅 추천 기간: ${randomDestination.duration}"
-        tipText.text = "${randomDestination.tip}"
+        tipText.text = randomDestination.tip
 
         // 결과 카드 애니메이션
         resultCard.alpha = 0f
