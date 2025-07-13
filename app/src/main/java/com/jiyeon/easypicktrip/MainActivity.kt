@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -162,26 +163,65 @@ class MainActivity : AppCompatActivity() {
         loadingLayout.visibility = View.VISIBLE
         resultCard.visibility = View.GONE
 
-        // 주사위 회전 애니메이션
-        val rotationX = PropertyValuesHolder.ofFloat(View.ROTATION_X, 0f, 360f)
-        val rotationY = PropertyValuesHolder.ofFloat(View.ROTATION_Y, 0f, 360f)
-        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 1.5f, 1f)
-        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 1.5f, 1f)
-
-        val animator = ObjectAnimator.ofPropertyValuesHolder(
-            diceImage, rotationX, rotationY, scaleX, scaleY
-        ).apply {
-            duration = 2000
-            interpolator = AccelerateDecelerateInterpolator()
-            repeatCount = 2
-        }
-
-        animator.start()
+        // 자연스러운 bounce 애니메이션
+        animateDiceBounce()
 
         // 애니메이션 후 결과 표시
         Handler(Looper.getMainLooper()).postDelayed({
             showResult(travelType)
-        }, 6000)
+        }, 3000)
+    }
+
+    private fun animateDiceBounce() {
+        // 연속적인 bounce 애니메이션
+        val bounceAnimation = ObjectAnimator.ofFloat(diceImage, "translationY", 0f, -100f, 0f, -60f, 0f, -30f, 0f).apply {
+            duration = 1500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        val rotateAnimation = ObjectAnimator.ofFloat(diceImage, "rotation", 0f, 360f).apply {
+            duration = 1500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        val scaleXAnimation = ObjectAnimator.ofFloat(diceImage, "scaleX", 1f, 1.2f, 1f, 1.1f, 1f).apply {
+            duration = 1500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        val scaleYAnimation = ObjectAnimator.ofFloat(diceImage, "scaleY", 1f, 1.2f, 1f, 1.1f, 1f).apply {
+            duration = 1500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        // 알파 애니메이션으로 반짝임 효과
+        val alphaAnimation = ObjectAnimator.ofFloat(diceImage, "alpha", 1f, 0.7f, 1f, 0.8f, 1f).apply {
+            duration = 1500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        // 모든 애니메이션 동시 실행
+        bounceAnimation.start()
+        rotateAnimation.start()
+        scaleXAnimation.start()
+        scaleYAnimation.start()
+        alphaAnimation.start()
+
+        // 두 번째 애니메이션 사이클
+        Handler(Looper.getMainLooper()).postDelayed({
+            val secondBounce = ObjectAnimator.ofFloat(diceImage, "translationY", 0f, -80f, 0f, -40f, 0f).apply {
+                duration = 1200
+                interpolator = AccelerateDecelerateInterpolator()
+            }
+
+            val secondRotate = ObjectAnimator.ofFloat(diceImage, "rotation", 360f, 720f).apply {
+                duration = 1200
+                interpolator = AccelerateDecelerateInterpolator()
+            }
+
+            secondBounce.start()
+            secondRotate.start()
+        }, 1500)
     }
 
     private fun showResult(travelType: String) {
