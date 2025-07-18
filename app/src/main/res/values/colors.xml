@@ -39,4 +39,16 @@
     <color name="text_primary">#4A4A4A</color>
     <color name="text_secondary">#7A7A7A</color>
     <color name="text_accent">#FF6B9D</color>
+
+    <color name="weather_card_background">#F8F9FA</color>
+    <color name="budget_detail_background">#F5F5F5</color>
+
+    <color name="button_outline_stroke">#DDDDDD</color>
+    <color name="button_outline_text">#333333</color>
+    <color name="button_retry_background">#4CAF50</color>
+    <color name="button_close_background">#F44336</color>
+
+    <color name="button_pressed">#E0E0E0</color>
+    <color name="button_retry_pressed">#45A049</color>
+    <color name="button_close_pressed">#D32F2F</color>
 </resources>
