@@ -310,7 +310,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateWeatherUI(weatherData: WeatherData?) {
         if (weatherData != null) {
-            weatherText.text = "${weatherData.description}"
+            val description = getWeatherDescriptionByIcon(weatherData.iconCode)
+
+            weatherText.text = description
             temperatureText.text = "${weatherData.temperature.toInt()}°C"
             humidityText.text = "습도: ${weatherData.humidity}%"
             windSpeedText.text = "바람: ${String.format("%.1f", weatherData.windSpeed)}m/s"
@@ -343,5 +345,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         weatherIcon.setImageResource(iconResource)
+    }
+
+    // 날씨 아이콘 코드에 따른 한국어 설명
+    private fun getWeatherDescriptionByIcon(iconCode: String): String {
+        return when (iconCode) {
+            "01d", "01n" -> "맑음"
+            "02d", "02n" -> "구름 조금"
+            "03d", "03n" -> "구름 많음"
+            "04d", "04n" -> "흐림"
+            "09d", "09n" -> "소나기"
+            "10d", "10n" -> "비"
+            "11d", "11n" -> "뇌우"
+            "13d", "13n" -> "눈"
+            "50d", "50n" -> "안개"
+            else -> "날씨 정보 없음"
+        }
     }
 }
