@@ -70,5 +70,5 @@
 
     <!-- Retry button -->
     <dimen name="retry_button_height">55dp</dimen>
-    <dimen name="retry_button_text_size">12sp</dimen>
+    <dimen name="retry_button_text_size">14sp</dimen>
 </resources>
