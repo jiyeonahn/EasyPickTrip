@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         durationText = findViewById(R.id.durationText)
         tipText = findViewById(R.id.tipText)
         retryButton = findViewById(R.id.retryButton)
-//        weatherIcon = findViewById(R.id.weatherIcon)
+        weatherIcon = findViewById(R.id.weatherIcon)
         temperatureText = findViewById(R.id.temperatureText)
         humidityText = findViewById(R.id.humidityText)
         windSpeedText = findViewById(R.id.windSpeedText)
@@ -261,7 +261,7 @@ class MainActivity : AppCompatActivity() {
         // 결과 표시
         resultTitle.text = "🎲 당신이 찾던 여행지입니다!"
         destinationText.text = "📍 ${randomDestination.name}"
-        weatherText.text = "🌤️ 날씨 정보를 가져오는 중..."
+        weatherText.text = "날씨 정보를 가져오는 중..."
         budgetText.text = "💰 예상 경비: ${randomDestination.budget}"
         durationText.text = "📅 추천 기간: ${randomDestination.duration}"
         tipText.text = randomDestination.tip
@@ -299,7 +299,7 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Log.e("MainActivity", "Error fetching weather", e)
                 withContext(Dispatchers.Main) {
-                    weatherText.text = "🌤️ 날씨: ${destination.weather}"
+                    weatherText.text = "날씨: ${destination.weather}"
                     temperatureText.text = "정보 없음"
                     humidityText.text = "습도: --"
                     windSpeedText.text = "바람: --"
@@ -310,34 +310,38 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateWeatherUI(weatherData: WeatherData?) {
         if (weatherData != null) {
-            weatherText.text = "🌤️ ${weatherData.description}"
+            weatherText.text = "${weatherData.description}"
             temperatureText.text = "${weatherData.temperature.toInt()}°C"
             humidityText.text = "습도: ${weatherData.humidity}%"
             windSpeedText.text = "바람: ${String.format("%.1f", weatherData.windSpeed)}m/s"
 
             // 날씨 아이콘 설정 (선택사항)
-            //setWeatherIcon(weatherData.iconCode)
+            setWeatherIcon(weatherData.iconCode)
         } else {
-            weatherText.text = "🌤️ 날씨 정보를 가져올 수 없습니다"
+            weatherText.text = "날씨 정보를 가져올 수 없습니다"
             temperatureText.text = "정보 없음"
             humidityText.text = "습도: --"
             windSpeedText.text = "바람: --"
         }
     }
 
-//    private fun setWeatherIcon(iconCode: String) {
-//        // 날씨 아이콘 설정
-//        val iconResource = when (iconCode) {
-//            "01d", "01n" -> R.drawable.ic_sunny
-//            "02d", "02n" -> R.drawable.ic_partly_cloudy
-//            "03d", "03n", "04d", "04n" -> R.drawable.ic_cloudy
-//            "09d", "09n", "10d", "10n" -> R.drawable.ic_rainy
-//            "11d", "11n" -> R.drawable.ic_thunderstorm
-//            "13d", "13n" -> R.drawable.ic_snowy
-//            "50d", "50n" -> R.drawable.ic_foggy
-//            else -> R.drawable.ic_default_weather
-//        }
-//
-//        weatherIcon.setImageResource(iconResource)
-//    }
+    private fun setWeatherIcon(iconCode: String) {
+        // 날씨 아이콘 설정
+        val iconResource = when (iconCode) {
+            "01d" -> R.drawable.ic_sunny_day          // 맑음 (낮)
+            "01n" -> R.drawable.ic_clear_night        // 맑음 (밤)
+            "02d" -> R.drawable.ic_partly_cloudy_day  // 구름조금 (낮)
+            "02n" -> R.drawable.ic_partly_cloudy_night // 구름조금 (밤)
+            "03d", "03n", "04d", "04n" -> R.drawable.ic_cloudy      // 구름많음
+            "09d", "09n" -> R.drawable.ic_drizzle     // 이슬비
+            "10d" -> R.drawable.ic_rain_day           // 비 (낮)
+            "10n" -> R.drawable.ic_rain_night         // 비 (밤)
+            "11d", "11n" -> R.drawable.ic_thunderstorm // 뇌우
+            "13d", "13n" -> R.drawable.ic_snow        // 눈
+            "50d", "50n" -> R.drawable.ic_mist        // 안개
+            else -> R.drawable.ic_default_weather     // 기본 아이콘
+        }
+
+        weatherIcon.setImageResource(iconResource)
+    }
 }
