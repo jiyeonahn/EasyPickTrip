@@ -1,7 +1,13 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
+
+val properties = Properties().apply { load(FileInputStream(rootProject.file("local.properties"))) }
 
 android {
     namespace = "com.jiyeon.easypicktrip"
@@ -15,6 +21,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "weatherKey", properties.getProperty("weatherKey"));
+        manifestPlaceholders["weatherKey"] = "weatherKey"
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {

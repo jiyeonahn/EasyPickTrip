@@ -5,6 +5,7 @@ import android.animation.PropertyValuesHolder
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
@@ -99,6 +100,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        Log.d("test", "${BuildConfig.weatherKey}")
         titleText = findViewById(R.id.titleText)
         subtitleText = findViewById(R.id.subtitleText)
         mainLayout = findViewById(R.id.mainLayout)
