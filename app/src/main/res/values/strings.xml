@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">랜덤 여행지 추천</string>
+    <string name="app_name">랜덤 여행</string>
     <string name="travel_recommendation">여행지 추천</string>
     <string name="select_travel_type">원하는 여행 유형을 선택하세요</string>
     <string name="select_travel_type_detail">어떤 여행을 원하시나요?</string>
