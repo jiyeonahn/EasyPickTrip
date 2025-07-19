@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_splash.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:gravity="center">
+
+    <!-- 메인 컨테이너 -->
+    <LinearLayout
+        android:id="@+id/main_container"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/card_background"
+        android:padding="40dp"
+        android:elevation="8dp">
+
+        <!-- 로고 -->
+        <TextView
+            android:id="@+id/logo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🧭"
+            android:textSize="48sp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- 앱 이름 -->
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여행 추천"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 앱 설명 -->
+        <TextView
+            android:id="@+id/app_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="당신만의 특별한 여행을 찾아보세요"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- 로딩 영역 -->
+    <LinearLayout
+        android:id="@+id/loading_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 로딩 텍스트 -->
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여행지를 준비하고 있어요..."
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="20dp"
+            android:alpha="0" />
+
+        <!-- 로딩 바 -->
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="4dp"
+            android:progressDrawable="@drawable/progress_drawable"
+            android:max="100"
+            android:progress="0" />
+
+    </LinearLayout>
+
+    <!-- 떠다니는 아이콘들 -->
+    <TextView
+        android:id="@+id/floating_icon_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🏖️"
+        android:textSize="24sp"
+        android:alpha="0.1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="30dp" />
+
+    <TextView
+        android:id="@+id/floating_icon_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🏔️"
+        android:textSize="24sp"
+        android:alpha="0.1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="40dp" />
+
+    <TextView
+        android:id="@+id/floating_icon_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🏛️"
+        android:textSize="24sp"
+        android:alpha="0.1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="60dp" />
+
+    <TextView
+        android:id="@+id/floating_icon_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎡"
+        android:textSize="24sp"
+        android:alpha="0.1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="30dp" />
+
+    <TextView
+        android:id="@+id/floating_icon_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✈️"
+        android:textSize="24sp"
+        android:alpha="0.1"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@+id/floating_icon_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🗺️"
+        android:textSize="24sp"
+        android:alpha="0.1"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp" />
+
+</RelativeLayout>
+
+
+
+
+
+
+
+

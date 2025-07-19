@@ -69,4 +69,7 @@ dependencies {
     // OkHttp
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("com.google.code.gson:gson:2.10.1")
+
+    // Splash
+    implementation("androidx.core:core-splashscreen:1.0.0-beta01")
 }

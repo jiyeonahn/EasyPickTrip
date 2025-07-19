@@ -13,6 +13,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.jiyeon.easypicktrip.repository.WeatherRepository
 import kotlinx.coroutines.*
 import kotlin.random.Random
@@ -109,7 +111,9 @@ class MainActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        SplashScreen.run { installSplashScreen() }
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
         initViews()
